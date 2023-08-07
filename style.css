@@ -16,9 +16,9 @@ body {
   }
 
   .container {
-    outline: 1px solid #ddd;
-    width: 500px;
-    min-height: 500px;
+    outline: 1px solid #222;
+    width: 600px;
+    min-height: 600px;
     padding: 0;
     display: flex;
     flex-wrap: wrap; 
@@ -28,5 +28,9 @@ body {
   .grid {
     margin: 0;
     padding: 0;
-    outline: 1px solid #222;
+    outline: 1px solid #ddd;
+  }
+
+  .hover {
+    background-color: thistle;
   }

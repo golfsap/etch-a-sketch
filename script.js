@@ -1,12 +1,23 @@
 const container = document.querySelector(".container");
-var gridSize = 16
-var numOfSquares = gridSize**2;
-var width = 500/gridSize;
 
+const gridSize = 16
+const numOfSquares = gridSize**2;
+const widthOfSquare = 600/gridSize;
+
+// Create grid
 for (let i=0; i<numOfSquares; i++) {
-    var div = document.createElement("div");
-    div.style.width = width+"px";
-    div.style.height = width+"px";
+    let div = document.createElement("div");
+    div.style.width = widthOfSquare+"px";
+    div.style.height = widthOfSquare+"px";
     div.classList.add("grid");
     container.appendChild(div);
 }
+
+// Add hover effect
+const squares = document.querySelectorAll(".grid");
+squares.forEach(square => {
+    square.addEventListener('mouseover', () => {
+        square.classList.add("hover");
+    })
+});
+
