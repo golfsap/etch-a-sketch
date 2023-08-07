@@ -24,10 +24,18 @@ function createGrid(gridSize) {
         div.classList.add("grid");
         container.appendChild(div);
     }
+    
+    const squares = document.querySelectorAll(".grid");
+
+    squares.forEach(square => {
+        addHoverColor(square);
+    })
     //addHoverColor();
-    addRandomColor();
+    //addDarkeningEffect();
+    //addRandomColor();
 }
 
+/*
 function addHoverColor() {
     const squares = document.querySelectorAll(".grid");
     squares.forEach(square => {
@@ -36,6 +44,14 @@ function addHoverColor() {
         })
     });
 }
+*/
+
+function addHoverColor(square) {
+    square.addEventListener('mouseover', () => {
+        square.classList.add("hover");
+    })
+    
+}
 
 function addRandomColor() {
     const squares = document.querySelectorAll(".grid");
@@ -43,6 +59,20 @@ function addRandomColor() {
         square.addEventListener('mouseover', () => {
             const randomColor = Math.floor(Math.random()*16777215).toString(16);
             square.style.backgroundColor = "#" + randomColor;
+        })
+    });
+}
+
+function addDarkeningEffect() {
+    const squares = document.querySelectorAll(".grid");
+    var brightnessPercent = 100;
+    squares.forEach(square => {
+        square.addEventListener('mouseover', () => {
+            console.log(brightnessPercent);
+            square.style.filter = "brightness(" + brightnessPercent + "%)";
+            if (brightnessPercent > 0) {
+                brightnessPercent-= 10;
+            }      
         })
     });
 }
