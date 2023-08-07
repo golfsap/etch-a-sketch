@@ -3,7 +3,12 @@ const container = document.querySelector(".container");
 const btn = document.querySelector(".btn");
 
 btn.addEventListener('click', () => {
-    let gridSize = prompt("Number of squares per side for new grid?");
+    do {
+        var gridSize = prompt("Number of squares per side for new grid? (1-100)");
+        if (gridSize === null) {
+            return;
+        }
+    } while (isNaN(gridSize) || gridSize > 100 || gridSize < 1);
     createGrid(gridSize);
 });
 
@@ -23,12 +28,12 @@ function createGrid(gridSize) {
 }
 
 function addHoverColor() {
-const squares = document.querySelectorAll(".grid");
-squares.forEach(square => {
-    square.addEventListener('mouseover', () => {
-        square.classList.add("hover");
-    })
-});
+    const squares = document.querySelectorAll(".grid");
+    squares.forEach(square => {
+        square.addEventListener('mouseover', () => {
+            square.classList.add("hover");
+        })
+    });
 }
 
 createGrid(16);
