@@ -5,7 +5,7 @@ const btn = document.querySelector(".btn");
 btn.addEventListener('click', () => {
     do {
         var gridSize = prompt("Number of squares per side for new grid? (1-100)");
-        if (gridSize === null) {
+        if (gridSize === null) { /* If user cancels prompt */
             return;
         }
     } while (isNaN(gridSize) || gridSize > 100 || gridSize < 1);
@@ -24,7 +24,8 @@ function createGrid(gridSize) {
         div.classList.add("grid");
         container.appendChild(div);
     }
-    addHoverColor();
+    //addHoverColor();
+    addRandomColor();
 }
 
 function addHoverColor() {
@@ -36,7 +37,18 @@ function addHoverColor() {
     });
 }
 
+function addRandomColor() {
+    const squares = document.querySelectorAll(".grid");
+    squares.forEach(square => {
+        square.addEventListener('mouseover', () => {
+            const randomColor = Math.floor(Math.random()*16777215).toString(16);
+            square.style.backgroundColor = "#" + randomColor;
+        })
+    });
+}
+
 createGrid(16);
+
 
 
 
