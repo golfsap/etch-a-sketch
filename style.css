@@ -13,7 +13,12 @@ body {
     color: #222;
     position: relative;
     min-height: 100vh;
-  }
+}
+
+.btn {
+    /*padding: 0.2rem 1.2rem;*/
+    transform: translate(0px, -18px); 
+}
 
   .container {
     outline: 1px solid #222;
