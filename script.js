@@ -24,18 +24,12 @@ function createGrid(gridSize) {
         div.classList.add("grid");
         container.appendChild(div);
     }
-    
-    const squares = document.querySelectorAll(".grid");
 
-    squares.forEach(square => {
-        addHoverColor(square);
-    })
-    //addHoverColor();
-    //addDarkeningEffect();
+    addHoverColor();
+    addDarkeningEffect();
     //addRandomColor();
 }
 
-/*
 function addHoverColor() {
     const squares = document.querySelectorAll(".grid");
     squares.forEach(square => {
@@ -43,14 +37,6 @@ function addHoverColor() {
             square.classList.add("hover");
         })
     });
-}
-*/
-
-function addHoverColor(square) {
-    square.addEventListener('mouseover', () => {
-        square.classList.add("hover");
-    })
-    
 }
 
 function addRandomColor() {
